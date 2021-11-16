@@ -1,0 +1,49 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Providers</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" routerLink="/listProvider" routerLinkActive="active"
+                    *ngIf="authService.isUserLoggedIn()">List Providers</a>
+                <a class="nav-item nav-link" routerLink="/addProvider" routerLinkActive="active"
+                    *ngIf="authService.isUserLoggedIn()">Add Provider</a>
+
+                <a class="nav-item nav-link" routerLink="/addRole" routerLinkActive="active"
+                    *ngIf="authService.isAdmin()">Add Role</a>
+                <a class="nav-item nav-link" routerLink="/listRoles" routerLinkActive="active"
+                    *ngIf="authService.isAdmin()">List Roles</a>
+                <a class="nav-item nav-link" routerLink="/listUsers" routerLinkActive="active"
+                    *ngIf="authService.isAdmin()">List
+                    Users</a>
+
+
+
+            </div>
+        </div>
+
+        <a class="nav-item nav-link" routerLinkActive="active" *ngIf="authService.isUserLoggedIn()"><span
+                class="text-warning">{{authService.loggedUser}}
+            </span> </a>
+
+
+
+        <a class="nav-item nav-link" routerLink="/logout" routerLinkActive="active"
+            *ngIf="authService.isUserLoggedIn()">LogOut</a>
+        <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active"
+            *ngIf="!authService.isUserLoggedIn()">Login</a>
+        <a class="nav-item nav-link" routerLink="/registration" routerLinkActive="active"
+            *ngIf="!authService.isUserLoggedIn()"> SignUP</a>
+
+
+
+
+
+
+
+
+
+    </nav>
+</div>
+
+
+<router-outlet></router-outlet>

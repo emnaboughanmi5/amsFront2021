@@ -1,0 +1,13 @@
+<div class="container col-lg-4">
+
+    <h1 class="text-center">Add Role</h1>
+
+    <form #myform="ngForm" (ngSubmit)="createRole(myform)">
+        <div class="form-group">
+            <label for="role">Role Name </label>
+            <input ngModel name="role" size="10" type="text" class="form-control" id="role" />
+        </div>
+
+        <button class="btn btn-primary">Add Role</button>
+    </form>
+</div>

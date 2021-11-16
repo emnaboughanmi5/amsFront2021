@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+
+            <h2>List of providers</h2>
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Adress</th>
+                    <th>DELETE</th>
+                    <th>UPDATE</th>
+                </tr>
+                <tr *ngFor="let provider of providers">
+                    <td>{{provider.id}}</td>
+                    <td>{{provider.name}}</td>
+                    <td>{{provider.email}}</td>
+                    <td>{{provider.address}}</td>
+
+                    <td><button (click)="deleteProvider(provider)" class="btn btn-danger">DELETE</button></td>
+                    <td><button (click)="updateProvider(provider)" class="btn btn-warning">UPDATE</button></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
