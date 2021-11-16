@@ -1,31 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 
-const userUrl = environment.urlBack;
 @Injectable({
   providedIn: 'root'
 })
 
 export class UserService {
 
-
+  userUrl: 'https://amsjwt.herokuapp.com/api/users'
   constructor(private httpClient: HttpClient) {
 
   }
   listUsers() {
-    return this.httpClient.get(userUrl + 'api/users' + '/list');
+    return this.httpClient.get(this.userUrl + '/list');
   }
   deleteUser(myObj: any) {
-    return this.httpClient.delete(userUrl + 'api/users' + '/' + myObj['id'])
+    return this.httpClient.delete(this.userUrl + '/' + myObj['id'])
 
   }
   updateUser(myObj: any) {
-    return this.httpClient.put(userUrl + 'api/users' + '/' + myObj['id'], myObj);
+    return this.httpClient.put(this.userUrl + '/' + myObj['id'], myObj);
 
   }
   getUser(id: any) {
-    return this.httpClient.get(userUrl + 'api/users' + '/' + id)
+    return this.httpClient.get(this.userUrl + '/' + id)
 
   }
 }
