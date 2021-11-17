@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 
 export class UserService {
 
-  userUrl: 'https://amsjwt.herokuapp.com/api/users'
+  userUrl = environment.urlBack + '/api/users'
   constructor(private httpClient: HttpClient) {
 
   }

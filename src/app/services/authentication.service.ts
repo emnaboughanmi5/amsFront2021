@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../models/User';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -11,7 +12,7 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  userUrl = 'https://amsjwt.herokuapp.com';
+  userUrl = environment.urlBack;
   token: string;
   public loggedUser: string;
   constructor(private router: Router, private httpClient: HttpClient) {
@@ -20,11 +21,11 @@ export class AuthenticationService {
 
 
   register(user: any) {
-    return this.httpClient.post(this.userUrl + 'api/users', user);
+    return this.httpClient.post(this.userUrl + '/api/users', user);
   }
 
   login(user: any) {
-    return this.httpClient.post<any>(this.userUrl + 'login', user)
+    return this.httpClient.post<any>(this.userUrl + '/login', user)
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         sessionStorage.setItem('username', user.username);
